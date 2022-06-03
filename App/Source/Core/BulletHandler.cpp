@@ -3,7 +3,7 @@
 
 BulletHandler::BulletHandler()
 {
-	m_bulletModel = LoadModel("C:/Dev/YAZG/App/Assets/bullet.obj");
+	m_bulletModel = LoadModel(MESH_PATH("bullet.obj"));
 	m_bulletBounds = GetMeshBoundingBox(m_bulletModel.meshes[0]);
 	//m_bulletTexture = LoadTexture("../resources/textures/Steve.png");
 	//m_bulletModel.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = m_bulletTexture;

@@ -15,8 +15,8 @@ Player::Player()
 	, m_bulletType(Bullet::DEFAULT)
 
 {
-	SetModel(LoadModel("C:/Dev/YAZG/App/Assets/Meshes/steve.obj"));
-	this->m_texture = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/Steve.png");
+	SetModel(LoadModel(MESH_PATH("steve.obj")));
+	this->m_texture = LoadTexture(TEXTURE_PATH("Steve.png"));
 	m_model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = m_texture;
 	m_model.transform = MatrixRotateXYZ({ 0, DEG2RAD * 90, 0 });
 }
@@ -32,10 +32,10 @@ Player::Player(int health, int attdmg, float runSpeed, Vector3 position)
 	, m_direction({0.f, 0.f,})
 	, m_bulletType(Bullet::DEFAULT)
 {
-	SetModel(LoadModel(".C:/Dev/YAZG/App/Assets/Meshes/steve.obj"));
+	SetModel(LoadModel(MESH_PATH("steve.obj")));
 	// Tranformation matrix for rotations
 	m_model.transform = MatrixRotateXYZ( { 0, DEG2RAD * 90, 0 });
-	this->m_texture = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/Steve.png");
+	this->m_texture = LoadTexture(TEXTURE_PATH("Steve.png"));
 	m_model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = m_texture;
 }
 

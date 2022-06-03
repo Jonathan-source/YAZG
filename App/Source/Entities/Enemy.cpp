@@ -10,8 +10,8 @@ Enemy::Enemy()
 	, m_runSpeed(3.f + static_cast<float>((rand() % 5) / 10.f)), m_velocity({ 0.f, 0.f, 0.f })
 	, m_direction({ 0.f, 0.f, })
 {
-	SetModel(LoadModel("C:/Dev/YAZG/App/Assets/Meshes/zombie.obj"));
-	this->m_texture = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/zombie.png");
+	SetModel(LoadModel(MESH_PATH("zombie.obj")));
+	this->m_texture = LoadTexture(TEXTURE_PATH("zombie.png"));
 	m_model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = m_texture;
 	m_boundingBox = GetMeshBoundingBox(m_model.meshes[0]);
 }
@@ -25,8 +25,8 @@ Enemy::Enemy(Player* playerTarget)
 	, m_direction({ 0.f, 0.f, })
 	, m_playerTarget(playerTarget)
 {
-	SetModel(LoadModel("C:/Dev/YAZG/App/Assets/Meshes/zombie.obj"));
-	this->m_texture = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/zombie.png");
+	SetModel(LoadModel(MESH_PATH("zombie.obj")));
+	this->m_texture = LoadTexture(TEXTURE_PATH("zombie.png"));
 	m_model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = m_texture;
 	m_boundingBox = GetMeshBoundingBox(m_model.meshes[0]);
 }
