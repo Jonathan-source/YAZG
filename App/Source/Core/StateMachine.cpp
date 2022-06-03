@@ -25,6 +25,6 @@ void StateMachine::Change(const std::string& id)
 StateMachine::~StateMachine()
 {
 	for (auto it = m_states.begin(); it != m_states.end(); it++) {
-		SafeDelete(it->second);
+		delete it->second;
 	}
 }

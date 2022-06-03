@@ -42,5 +42,8 @@ extern "C"
 #include <functional>
 #include <math.h>
 
-// Macros
-#define SafeDelete(x) if(x) { delete x; x = nullptr; }
+#define TEXTURE_PATH(name) "../../App/Assets/Textures/" ## name
+#define MESH_PATH(name) "../../App/Assets/Meshes/" ## name
+#define SOUND_PATH(name) "../../App/Assets/Sounds/" ## name
+#define MUSIC_PATH(name) "../../App/Assets/Music/" ## name
+#define SCRIPT_PATH(name) "../../App/Assets/Scripts/" ## name

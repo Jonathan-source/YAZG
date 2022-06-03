@@ -13,18 +13,18 @@
   Player.cpp
   Projectile.cpp
   Game.cpp
+C:\Dev\YAZG\App\Source\Entities\Projectile.cpp(48,9): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
 C:\Dev\YAZG\App\Source\Editor\Editor.cpp(163,8): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Dev\YAZG\App\Source\Editor\Editor.cpp(162,8): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Dev\YAZG\App\Source\Editor\Editor.cpp(161,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Dev\YAZG\App\Source\Editor\Editor.cpp(160,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Highscore.cpp
 C:\Dev\YAZG\App\Source\Editor\Editor.cpp(275,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Dev\YAZG\App\Source\Editor\Editor.cpp(279,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Dev\YAZG\App\Source\Entities\Projectile.cpp(48,9): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
-  Highscore.cpp
   MainMenu.cpp
+C:\Dev\YAZG\App\Source\States\MainMenu.cpp(113,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Dev\YAZG\App\Source\States\Game.cpp(70,19): warning C4244: '=': conversion from 'lua_Number' to 'float', possible loss of data
 C:\Dev\YAZG\App\Source\States\Game.cpp(145,19): warning C4244: '=': conversion from 'lua_Number' to 'float', possible loss of data
-C:\Dev\YAZG\App\Source\States\MainMenu.cpp(113,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Yet Another Zombie Game.vcxproj -> C:\Dev\YAZG\Build\Bin\Win64_Debug\YAZG.exe
           1 file(s) copied.
           1 file(s) copied.

@@ -129,11 +129,11 @@ void MainMenu::OnExit()
 
 void MainMenu::InitButtons()
 {
-	fxButton = LoadSound("YAZG/App/Assets/Sounds/buttonfx.wav");
-	t_startButton = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/startbutton.png");
-	t_editorButton = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/editorbutton.png");
-	t_highscoreButton = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/highscorebutton.png");
-	t_exitButton = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/exitbutton.png");
+	fxButton = LoadSound(SOUND_PATH("buttonfx.wav"));
+	t_startButton = LoadTexture(TEXTURE_PATH("startbutton.png"));
+	t_editorButton = LoadTexture(TEXTURE_PATH("editorbutton.png"));
+	t_highscoreButton = LoadTexture(TEXTURE_PATH("highscorebutton.png"));
+	t_exitButton = LoadTexture(TEXTURE_PATH("exitbutton.png"));
 
 	frameHeight = static_cast<float>(t_startButton.height) / static_cast<float>(m_Numframes);
 
