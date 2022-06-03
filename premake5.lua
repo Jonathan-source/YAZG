@@ -131,8 +131,6 @@ project "Yet Another Zombie Game"
 	-- General Files
 		
 	filter {}
-        files { "App/Config/*.h", "App/Config/*.cpp" }
-		files { "App/Source/Asset/*.h", "App/Source/Asset/*.cpp" }
 		files { "App/Source/Core/*.h", "App/Source/Core/*.cpp" }
 		files { "App/Source/Editor/*.h", "App/Source/Editor/*.cpp" }
 		files { "App/Source/Entities/*.h", "App/Source/Entities/*.cpp" }

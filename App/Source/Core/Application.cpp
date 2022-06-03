@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Application.h"
+#include "Core/Config.h"
 
 Application::Application()
     : m_sceneStateMachine(StateMachine())

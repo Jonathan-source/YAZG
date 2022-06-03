@@ -129,7 +129,7 @@ void MainMenu::OnExit()
 
 void MainMenu::InitButtons()
 {
-	fxButton = LoadSound("C:/Dev/YAZG/App/Assets/Sounds/buttonfx.wav");
+	fxButton = LoadSound("YAZG/App/Assets/Sounds/buttonfx.wav");
 	t_startButton = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/startbutton.png");
 	t_editorButton = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/editorbutton.png");
 	t_highscoreButton = LoadTexture("C:/Dev/YAZG/App/Assets/Textures/highscorebutton.png");

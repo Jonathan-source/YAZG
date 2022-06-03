@@ -42,6 +42,5 @@ extern "C"
 #include <functional>
 #include <math.h>
 
-
 // Macros
 #define SafeDelete(x) if(x) { delete x; x = nullptr; }
