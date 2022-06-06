@@ -54,14 +54,14 @@ void PathFinderManager::UpdateConnections(std::vector<std::vector<Node*>>& grid)
 	RemoveUnreachableConnections(grid);
 }
 
-std::vector<std::vector<Node*>> PathFinderManager::InitializeGrid(int size, int spacing = 1)
+std::vector<std::vector<Node*>> PathFinderManager::InitializeGrid(int spacing = 1)
 {
 	std::vector<std::vector<Node*>> grid;
-	for(int i = 0; i < size; i++)
+	for(int i = 0; i < GRID_SIZE; i++)
 	{
 		grid.emplace_back();
 
-		for(int j = 0; j < size; j++)
+		for(int j = 0; j < GRID_SIZE; j++)
 		{
 			Node* newNode = new Node;
 			newNode->position = { static_cast<float>(i * spacing), 0.f, static_cast<float>(j * spacing) };
@@ -76,7 +76,13 @@ std::vector<std::vector<Node*>> PathFinderManager::InitializeGrid(int size, int 
 
 std::vector<Node*> PathFinderManager::AStar(Node* startNode, Node* goalNode)
 {
-	std::vector<Node*> openList, closedList, generatedPath;
+
+	bool closedList[GRID_SIZE][GRID_SIZE];
+	memset(closedList, false, sizeof(closedList));
+
+	std::set<Node*> openList;
+	std::vector<Node*> generatedPath;
+
 	if(startNode == nullptr || goalNode == nullptr || !startNode->reachable || !goalNode->reachable)
 	{
 		std::cout << "Error in PathFinderManager::AStar(StartNode or GoalNode is null)" << std::endl;
@@ -86,23 +92,29 @@ std::vector<Node*> PathFinderManager::AStar(Node* startNode, Node* goalNode)
 	// Initialize start
 	Node* startingNode = startNode;
 	startingNode->f = 0.0f;
-	openList.push_back(startingNode);
-
+	startingNode->g = 0.0f;
+	startingNode->h = 0.0f;
+	
+	openList.insert(startingNode);
 	while (!openList.empty())
 	{
-		Node* currentNode = openList.at(0);
-		int ind = 0;
+		Node* currentNode = *openList.begin();
 
-		for (int i = 1; i < openList.size(); i++)
+		std::set<Node*>::iterator itr;
+		std::set<Node*>::iterator itrToErase = openList.begin();
+		for (itr = ++openList.begin(); itr != openList.end(); itr++)
 		{
-			if (openList[i]->f < currentNode->f)
+			Node* tempNode = *itr;
+			if (tempNode->f < currentNode->f)
 			{
-				currentNode = openList[i];
-				ind = i;
+				currentNode = tempNode;
+				itrToErase = itr;
 			}
 		}
-		openList.erase(openList.begin() + ind);
-		closedList.emplace_back(currentNode);
+
+		openList.erase(itrToErase);
+		
+		closedList[(int)currentNode->position.x][(int)currentNode->position.z] = true;
 
 		if (currentNode == goalNode)
 		{
@@ -120,18 +132,13 @@ std::vector<Node*> PathFinderManager::AStar(Node* startNode, Node* goalNode)
 				node->ResetFGH();
 				node->parent = nullptr;
 			}
-			for (Node* node : closedList)
-			{
-				node->ResetFGH();
-				node->parent = nullptr;
-			}
 
 			return generatedPath;
 		}
 
 		for (Node* neighbor : currentNode->connections)
 		{
-			if (IsInVector(closedList, neighbor))
+			if (closedList[(int)neighbor->position.x][(int)neighbor->position.z])
 			{
 				continue;
 			}
@@ -140,7 +147,7 @@ std::vector<Node*> PathFinderManager::AStar(Node* startNode, Node* goalNode)
 			const float hNew = Vector3Distance(goalNode->position, neighbor->position);
 			const float fNew = gNew + hNew;
 
-			if (neighbor->reachable && gNew < currentNode->g || neighbor->reachable && !IsInVector(openList, neighbor))
+			if (neighbor->reachable && gNew < currentNode->g || neighbor->reachable && (openList.find(neighbor) == openList.end()))
 			{
 				neighbor->g = gNew;
 				neighbor->h = hNew;
@@ -148,7 +155,7 @@ std::vector<Node*> PathFinderManager::AStar(Node* startNode, Node* goalNode)
 
 				neighbor->parent = currentNode;
 
-				openList.emplace_back(neighbor);
+				openList.insert(neighbor);
 			}
 		}
 	}

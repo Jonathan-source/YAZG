@@ -1,5 +1,7 @@
 #pragma once
 
+const int GRID_SIZE = 50;
+
 struct Node
 {
 	float f = FLT_MAX, g = FLT_MAX, h = FLT_MAX;
@@ -23,7 +25,7 @@ public:
 	// Set up the connections for the nodes in grid
 	static void UpdateConnections(std::vector<std::vector<Node*>>& grid);
 	// Set up a grid
-	static std::vector<std::vector<Node*>> InitializeGrid(int size, int spacing);
+	static std::vector<std::vector<Node*>> InitializeGrid(int spacing);
 	// Perform A-star search resulting in a path returned
 	static std::vector<Node*> AStar(Node* startNode, Node* goalNode);
 	// Check if node is in a vector

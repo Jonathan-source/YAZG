@@ -24,7 +24,7 @@ void Game::OnEnter()
 	m_enemyManager.AddSpawnPoint({ 15,0,15 });
 
 	// init grid
-	m_grid = PathFinderManager::InitializeGrid(50,1);
+	m_grid = PathFinderManager::InitializeGrid(1);
 
 	m_grid[3][3]->reachable = false;
 	m_grid[3][4]->reachable = false;
@@ -60,7 +60,7 @@ void Game::UpdateCamera()
 	lua_State* L = luaL_newstate();
 	luaL_openlibs(L);
 
-	luaL_dofile(L, "C:/Dev/YAZG/App/Assets/Scripts/GameConfig.lua");
+	luaL_dofile(L, SCRIPT_PATH("GameConfig.lua"));
 	lua_getglobal(L, "Camera");
 
 	if (lua_istable(L, -1))

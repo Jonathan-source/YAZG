@@ -44,6 +44,10 @@
 *.userosscache
 *.sln.docstates
 *.vcxproj
+*.idb
+*.recipe
+*.log
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 *.filters
@@ -430,3 +434,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Build/Logs/GameBuildLog.log
